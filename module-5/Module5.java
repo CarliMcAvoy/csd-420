@@ -14,25 +14,40 @@ public class Module5 {
     //create TreeSet
     TreeSet<String> treeSet = new TreeSet<>();
 
-    //Add words from file to TreeSet using the Scanner method
-    try (Scanner input = new Scanner(new File("collection_of_words.txt"))) {
-        while (input.hasNext()) {
-            treeSet.add(input.next());
+    //Create file object
+    File file = new File("collection_of_words.txt");
+
+    //Call methods
+    noDuplicates(treeSet, file);
+    display(treeSet);
+
+    }
+
+    //Method for adding text from a file to a String TreeSet
+    public static void noDuplicates(TreeSet<String> set, File file){
+
+        //Add words from file to TreeSet using the Scanner method
+        try (Scanner input = new Scanner(new File(file.getName()))){
+            while (input.hasNext()){
+                set.add(input.next());
+            }
+        } catch(Exception e){
+            e.printStackTrace();
         }
-    } catch (Exception e){
-        e.printStackTrace();
     }
 
-    //Display TreeSet
-    for (String s : treeSet){
-        System.out.print(s + " ");
-    }
+    //Display TreeSet method
+    public static void display(TreeSet<String> set){
 
-    System.out.println();
+        for (String s : set){
+            System.out.print(s + " ");
+        }
 
-    //Display TreeSet in descending order
-    for (String s : treeSet.reversed()){
-        System.out.print(s + " ");
-    }
+        System.out.println();
+
+        //Display TreeSet in descending order
+        for (String s : set.reversed()){
+            System.out.print(s + " ");
+        }
     }
 }
