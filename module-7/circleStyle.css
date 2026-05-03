@@ -1,0 +1,13 @@
+.circleborder{
+    -fx-stroke-width: 2px;
+    -fx-stroke: black;
+    -fx-fill: white;
+}
+
+#red{
+    -fx-fill: maroon;
+}
+
+#green{
+    -fx-fill: darkgreen;
+}
